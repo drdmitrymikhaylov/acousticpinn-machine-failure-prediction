@@ -1,0 +1,1552 @@
+{
+ "config": {
+  "fs": 500000.0,
+  "snrs": [
+   6,
+   0,
+   -6,
+   -12,
+   -18
+  ],
+  "durations": [
+   0.1,
+   0.2,
+   0.4,
+   1.0
+  ],
+  "n_per_cell": 40,
+  "features": [
+   "hf_ratio_db",
+   "crest_hf",
+   "phase_concentration",
+   "events_per_half_cycle",
+   "count_fano",
+   "half_cycle_occupancy"
+  ],
+  "min_events": 3
+ },
+ "calibration": {
+  "6|0.1": {
+   "recovery_median": 1.0627450980392157,
+   "recovery_p10": 0.8975000000000001,
+   "recovery_p90": 1.2535714285714286,
+   "usable_fraction": 1.0,
+   "n_true_median": 17.0
+  },
+  "6|0.2": {
+   "recovery_median": 1.0591954022988506,
+   "recovery_p10": 0.9537337662337663,
+   "recovery_p90": 1.1618279569892473,
+   "usable_fraction": 1.0,
+   "n_true_median": 31.5
+  },
+  "6|0.4": {
+   "recovery_median": 1.0717770929635337,
+   "recovery_p10": 0.9705820105820105,
+   "recovery_p90": 1.1428571428571428,
+   "usable_fraction": 1.0,
+   "n_true_median": 66.5
+  },
+  "6|1.0": {
+   "recovery_median": 1.0662280701754385,
+   "recovery_p10": 1.0117376605814739,
+   "recovery_p90": 1.104560217840622,
+   "usable_fraction": 1.0,
+   "n_true_median": 164.0
+  },
+  "0|0.1": {
+   "recovery_median": 0.9772727272727273,
+   "recovery_p10": 0.8571428571428571,
+   "recovery_p90": 1.0909090909090908,
+   "usable_fraction": 1.0,
+   "n_true_median": 15.0
+  },
+  "0|0.2": {
+   "recovery_median": 0.9683046683046683,
+   "recovery_p10": 0.9105882352941176,
+   "recovery_p90": 1.0366883116883119,
+   "usable_fraction": 1.0,
+   "n_true_median": 35.5
+  },
+  "0|0.4": {
+   "recovery_median": 0.9849615558570782,
+   "recovery_p10": 0.9154756958869962,
+   "recovery_p90": 1.0408163265306123,
+   "usable_fraction": 1.0,
+   "n_true_median": 67.0
+  },
+  "0|1.0": {
+   "recovery_median": 0.9850256598240469,
+   "recovery_p10": 0.9451053864168619,
+   "recovery_p90": 1.0322245322245323,
+   "usable_fraction": 1.0,
+   "n_true_median": 171.5
+  },
+  "-6|0.1": {
+   "recovery_median": 0.9110671936758893,
+   "recovery_p10": 0.759,
+   "recovery_p90": 1.0,
+   "usable_fraction": 1.0,
+   "n_true_median": 16.0
+  },
+  "-6|0.2": {
+   "recovery_median": 0.9076704545454546,
+   "recovery_p10": 0.7854337152209493,
+   "recovery_p90": 0.9707516339869281,
+   "usable_fraction": 1.0,
+   "n_true_median": 32.5
+  },
+  "-6|0.4": {
+   "recovery_median": 0.8844981908207961,
+   "recovery_p10": 0.8099555061179088,
+   "recovery_p90": 0.9785117056856187,
+   "usable_fraction": 1.0,
+   "n_true_median": 63.5
+  },
+  "-6|1.0": {
+   "recovery_median": 0.8541666666666667,
+   "recovery_p10": 0.7702382030613169,
+   "recovery_p90": 0.9268673312883435,
+   "usable_fraction": 1.0,
+   "n_true_median": 166.5
+  },
+  "-12|0.1": {
+   "recovery_median": 0.6055555555555556,
+   "recovery_p10": 0.3512727272727273,
+   "recovery_p90": 0.8763888888888889,
+   "usable_fraction": 0.975,
+   "n_true_median": 17.0
+  },
+  "-12|0.2": {
+   "recovery_median": 0.5321815718157181,
+   "recovery_p10": 0.3743421052631579,
+   "recovery_p90": 0.7093750000000001,
+   "usable_fraction": 1.0,
+   "n_true_median": 32.0
+  },
+  "-12|0.4": {
+   "recovery_median": 0.581105913798864,
+   "recovery_p10": 0.39581447963800903,
+   "recovery_p90": 0.7372958257713248,
+   "usable_fraction": 1.0,
+   "n_true_median": 64.0
+  },
+  "-12|1.0": {
+   "recovery_median": 0.5919473736405408,
+   "recovery_p10": 0.4603896103896104,
+   "recovery_p90": 0.689920424403183,
+   "usable_fraction": 1.0,
+   "n_true_median": 163.5
+  },
+  "-18|0.1": {
+   "recovery_median": 0.1455026455026455,
+   "recovery_p10": 0.04954545454545455,
+   "recovery_p90": 0.45000000000000007,
+   "usable_fraction": 0.525,
+   "n_true_median": 17.0
+  },
+  "-18|0.2": {
+   "recovery_median": 0.1634908536585366,
+   "recovery_p10": 0.058069381598793365,
+   "recovery_p90": 0.2891428571428572,
+   "usable_fraction": 0.9,
+   "n_true_median": 32.5
+  },
+  "-18|0.4": {
+   "recovery_median": 0.1449490662139219,
+   "recovery_p10": 0.06751045564604886,
+   "recovery_p90": 0.2543454742156509,
+   "usable_fraction": 0.975,
+   "n_true_median": 71.5
+  },
+  "-18|1.0": {
+   "recovery_median": 0.14672119385851629,
+   "recovery_p10": 0.05863737900223381,
+   "recovery_p90": 0.23585384041759883,
+   "usable_fraction": 1.0,
+   "n_true_median": 159.5
+  }
+ },
+ "cells": {
+  "6|0.1": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.28,
+     "crest_hf": 1.0,
+     "phase_concentration": 1.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "vs_hum": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.995,
+     "crest_hf": 0.983125,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.838125,
+     "count_fano": 0.98125,
+     "half_cycle_occupancy": 0.081875
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.99625,
+     "crest_hf": 0.999375,
+     "phase_concentration": 0.35625,
+     "events_per_half_cycle": 0.394375,
+     "count_fano": 0.9425,
+     "half_cycle_occupancy": 0.04875
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 7.76534036706135,
+     "crest_hf": 29.722661948747387,
+     "phase_concentration": 0.8966110469874276,
+     "events_per_half_cycle": 1.75,
+     "count_fano": 2.0905982905982903,
+     "half_cycle_occupancy": 0.5
+    },
+    "hum": {
+     "hf_ratio_db": -1.478402014738009,
+     "crest_hf": 14.608670965227839,
+     "phase_concentration": 0.9914303406222027,
+     "events_per_half_cycle": 1.15,
+     "count_fano": 0.4477272727272727,
+     "half_cycle_occupancy": 0.9
+    },
+    "rattle": {
+     "hf_ratio_db": -1.4158061654752827,
+     "crest_hf": 12.230815451313433,
+     "phase_concentration": 0.9141938198677841,
+     "events_per_half_cycle": 2.0,
+     "count_fano": 0.7884615384615383,
+     "half_cycle_occupancy": 0.9
+    },
+    "quiet": {
+     "hf_ratio_db": 9.504025193729854,
+     "crest_hf": 2.2937009376942243,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "6|0.2": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.29625,
+     "crest_hf": 1.0,
+     "phase_concentration": 1.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "vs_hum": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.999375,
+     "crest_hf": 0.9975,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.870625,
+     "count_fano": 0.99625,
+     "half_cycle_occupancy": 0.03125
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.999375,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.216875,
+     "events_per_half_cycle": 0.349375,
+     "count_fano": 0.985625,
+     "half_cycle_occupancy": 0.018125
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 7.3702650001830365,
+     "crest_hf": 33.49335617031163,
+     "phase_concentration": 0.8893070681110936,
+     "events_per_half_cycle": 1.6749999999999998,
+     "count_fano": 2.2384615384615385,
+     "half_cycle_occupancy": 0.55
+    },
+    "hum": {
+     "hf_ratio_db": -2.1091806647088864,
+     "crest_hf": 17.122496706360756,
+     "phase_concentration": 0.9897780175171961,
+     "events_per_half_cycle": 1.15,
+     "count_fano": 0.5365079365079366,
+     "half_cycle_occupancy": 0.85
+    },
+    "rattle": {
+     "hf_ratio_db": -1.3076667750708426,
+     "crest_hf": 13.022091639251911,
+     "phase_concentration": 0.9142482689688057,
+     "events_per_half_cycle": 2.025,
+     "count_fano": 1.0540404040404039,
+     "half_cycle_occupancy": 0.9
+    },
+    "quiet": {
+     "hf_ratio_db": 9.501063327942592,
+     "crest_hf": 2.305201718203879,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "6|0.4": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.375,
+     "crest_hf": 1.0,
+     "phase_concentration": 1.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "vs_hum": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.9975,
+     "crest_hf": 0.999375,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.944375,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 0.00125
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 1.0,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.11,
+     "events_per_half_cycle": 0.340625,
+     "count_fano": 0.991875,
+     "half_cycle_occupancy": 0.004375
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 7.502455947154549,
+     "crest_hf": 40.347161428438426,
+     "phase_concentration": 0.8823927140735757,
+     "events_per_half_cycle": 1.725,
+     "count_fano": 2.560625,
+     "half_cycle_occupancy": 0.4875
+    },
+    "hum": {
+     "hf_ratio_db": -1.2449895879224924,
+     "crest_hf": 19.1931443700812,
+     "phase_concentration": 0.9889087375490336,
+     "events_per_half_cycle": 1.175,
+     "count_fano": 0.5074412783981517,
+     "half_cycle_occupancy": 0.875
+    },
+    "rattle": {
+     "hf_ratio_db": -1.5008460849375147,
+     "crest_hf": 13.04671365295221,
+     "phase_concentration": 0.9115865299877932,
+     "events_per_half_cycle": 1.9625,
+     "count_fano": 1.0837401523957126,
+     "half_cycle_occupancy": 0.8625
+    },
+    "quiet": {
+     "hf_ratio_db": 9.48151138382229,
+     "crest_hf": 2.3850551716614037,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "6|1.0": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.4125,
+     "crest_hf": 1.0,
+     "phase_concentration": 1.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "vs_hum": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 1.0,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.993125,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 0.000625
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 1.0,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.076875,
+     "events_per_half_cycle": 0.19,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 0.0
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 8.873295843466753,
+     "crest_hf": 47.50625435714024,
+     "phase_concentration": 0.8835439487480687,
+     "events_per_half_cycle": 1.745,
+     "count_fano": 2.4564884604148407,
+     "half_cycle_occupancy": 0.515
+    },
+    "hum": {
+     "hf_ratio_db": -1.1356970660121637,
+     "crest_hf": 20.34802294083127,
+     "phase_concentration": 0.9884157430680212,
+     "events_per_half_cycle": 1.2149999999999999,
+     "count_fano": 0.5623361823361823,
+     "half_cycle_occupancy": 0.87
+    },
+    "rattle": {
+     "hf_ratio_db": -1.0406941967702013,
+     "crest_hf": 14.823803892116008,
+     "phase_concentration": 0.9098955690796529,
+     "events_per_half_cycle": 2.085,
+     "count_fano": 1.1591628434027972,
+     "half_cycle_occupancy": 0.875
+    },
+    "quiet": {
+     "hf_ratio_db": 9.484415209297579,
+     "crest_hf": 2.4763615707959197,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "0|0.1": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.55125,
+     "crest_hf": 1.0,
+     "phase_concentration": 1.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "vs_hum": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.959375,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.0275,
+     "events_per_half_cycle": 0.758125,
+     "count_fano": 0.931875,
+     "half_cycle_occupancy": 0.30125
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.9975,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.233125,
+     "events_per_half_cycle": 0.61375,
+     "count_fano": 0.81125,
+     "half_cycle_occupancy": 0.32625
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 9.788241734047983,
+     "crest_hf": 23.661689529629182,
+     "phase_concentration": 0.8927968615477371,
+     "events_per_half_cycle": 1.4,
+     "count_fano": 1.9779411764705883,
+     "half_cycle_occupancy": 0.5
+    },
+    "hum": {
+     "hf_ratio_db": 2.2168710501485354,
+     "crest_hf": 9.657451497233314,
+     "phase_concentration": 0.994794240412332,
+     "events_per_half_cycle": 0.9,
+     "count_fano": 0.754761904761905,
+     "half_cycle_occupancy": 0.6
+    },
+    "rattle": {
+     "hf_ratio_db": 1.7804648425799816,
+     "crest_hf": 7.875811798706614,
+     "phase_concentration": 0.9353768300124484,
+     "events_per_half_cycle": 1.2,
+     "count_fano": 1.1863636363636363,
+     "half_cycle_occupancy": 0.6
+    },
+    "quiet": {
+     "hf_ratio_db": 9.489590597127183,
+     "crest_hf": 2.2415429895235013,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "0|0.2": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.318125,
+     "crest_hf": 1.0,
+     "phase_concentration": 1.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "vs_hum": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.99625,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.9575,
+     "count_fano": 0.969375,
+     "half_cycle_occupancy": 0.449375
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.995625,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.14625,
+     "events_per_half_cycle": 0.705,
+     "count_fano": 0.894375,
+     "half_cycle_occupancy": 0.265625
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 8.370378375938914,
+     "crest_hf": 25.8302407326079,
+     "phase_concentration": 0.8900541359368896,
+     "events_per_half_cycle": 1.75,
+     "count_fano": 2.1090671316477767,
+     "half_cycle_occupancy": 0.55
+    },
+    "hum": {
+     "hf_ratio_db": 2.014848871316125,
+     "crest_hf": 10.861762214580185,
+     "phase_concentration": 0.9937653182592674,
+     "events_per_half_cycle": 0.85,
+     "count_fano": 0.8513888888888889,
+     "half_cycle_occupancy": 0.6
+    },
+    "rattle": {
+     "hf_ratio_db": 2.3706324792037723,
+     "crest_hf": 8.743727306129083,
+     "phase_concentration": 0.925923874430282,
+     "events_per_half_cycle": 1.4249999999999998,
+     "count_fano": 1.2474565756823823,
+     "half_cycle_occupancy": 0.65
+    },
+    "quiet": {
+     "hf_ratio_db": 9.481636695960551,
+     "crest_hf": 2.362973100341115,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "0|0.4": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.550625,
+     "crest_hf": 1.0,
+     "phase_concentration": 1.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "vs_hum": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.98625,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.986875,
+     "count_fano": 0.999375,
+     "half_cycle_occupancy": 0.31125
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.996875,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.16125,
+     "events_per_half_cycle": 0.660625,
+     "count_fano": 0.925625,
+     "half_cycle_occupancy": 0.13875
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 9.599418166520564,
+     "crest_hf": 33.126486409374195,
+     "phase_concentration": 0.8927004775972016,
+     "events_per_half_cycle": 1.625,
+     "count_fano": 2.2460199004975125,
+     "half_cycle_occupancy": 0.5
+    },
+    "hum": {
+     "hf_ratio_db": 2.331547604956066,
+     "crest_hf": 12.92895310150977,
+     "phase_concentration": 0.9920297023560252,
+     "events_per_half_cycle": 0.925,
+     "count_fano": 0.875,
+     "half_cycle_occupancy": 0.6375
+    },
+    "rattle": {
+     "hf_ratio_db": 2.421420796579212,
+     "crest_hf": 9.352136958764964,
+     "phase_concentration": 0.917964088858964,
+     "events_per_half_cycle": 1.4125,
+     "count_fano": 1.4,
+     "half_cycle_occupancy": 0.65
+    },
+    "quiet": {
+     "hf_ratio_db": 9.485574176463846,
+     "crest_hf": 2.403956001698596,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "0|1.0": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.43,
+     "crest_hf": 1.0,
+     "phase_concentration": 1.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "vs_hum": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.99875,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 0.4
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 1.0,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.07125,
+     "events_per_half_cycle": 0.86125,
+     "count_fano": 0.98875,
+     "half_cycle_occupancy": 0.183125
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 8.96294165721162,
+     "crest_hf": 39.40938947414291,
+     "phase_concentration": 0.8822174174403379,
+     "events_per_half_cycle": 1.67,
+     "count_fano": 2.238212484098785,
+     "half_cycle_occupancy": 0.535
+    },
+    "hum": {
+     "hf_ratio_db": 2.389661068565372,
+     "crest_hf": 13.23360233896123,
+     "phase_concentration": 0.9920820750445034,
+     "events_per_half_cycle": 0.87,
+     "count_fano": 0.9094721944721946,
+     "half_cycle_occupancy": 0.565
+    },
+    "rattle": {
+     "hf_ratio_db": 2.30238456027348,
+     "crest_hf": 9.988231380159087,
+     "phase_concentration": 0.9131641876281875,
+     "events_per_half_cycle": 1.355,
+     "count_fano": 1.5060948520896937,
+     "half_cycle_occupancy": 0.655
+    },
+    "quiet": {
+     "hf_ratio_db": 9.49885989649869,
+     "crest_hf": 2.5063191464121566,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "-6|0.1": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.4325,
+     "crest_hf": 1.0,
+     "phase_concentration": 1.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "vs_hum": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.97875,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.25,
+     "events_per_half_cycle": 0.978125,
+     "count_fano": 0.89875,
+     "half_cycle_occupancy": 0.790625
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.99,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.385,
+     "events_per_half_cycle": 0.925625,
+     "count_fano": 0.913125,
+     "half_cycle_occupancy": 0.706875
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 9.222674167591727,
+     "crest_hf": 14.49418974270338,
+     "phase_concentration": 0.8932800089120143,
+     "events_per_half_cycle": 1.4,
+     "count_fano": 1.9250000000000003,
+     "half_cycle_occupancy": 0.5
+    },
+    "hum": {
+     "hf_ratio_db": 5.8997073512226095,
+     "crest_hf": 5.412768027757266,
+     "phase_concentration": 0.9954657180396131,
+     "events_per_half_cycle": 0.45,
+     "count_fano": 0.8545454545454545,
+     "half_cycle_occupancy": 0.3
+    },
+    "rattle": {
+     "hf_ratio_db": 5.834968768495957,
+     "crest_hf": 4.305769878502925,
+     "phase_concentration": 0.9367496638678192,
+     "events_per_half_cycle": 0.5,
+     "count_fano": 0.7500000000000002,
+     "half_cycle_occupancy": 0.35
+    },
+    "quiet": {
+     "hf_ratio_db": 9.485830239625638,
+     "crest_hf": 2.2642897995592044,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "-6|0.2": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.48,
+     "crest_hf": 1.0,
+     "phase_concentration": 1.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "vs_hum": {
+    "full": 0.9,
+    "single": {
+     "hf_ratio_db": 0.975,
+     "crest_hf": 0.999375,
+     "phase_concentration": 0.05,
+     "events_per_half_cycle": 0.98625,
+     "count_fano": 0.925,
+     "half_cycle_occupancy": 0.81
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.985625,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.300625,
+     "events_per_half_cycle": 0.984375,
+     "count_fano": 0.903125,
+     "half_cycle_occupancy": 0.855625
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 9.405351147291906,
+     "crest_hf": 17.255704420784582,
+     "phase_concentration": 0.8972443891657864,
+     "events_per_half_cycle": 1.45,
+     "count_fano": 2.05,
+     "half_cycle_occupancy": 0.5
+    },
+    "hum": {
+     "hf_ratio_db": 5.849684265338369,
+     "crest_hf": 6.002069364426225,
+     "phase_concentration": 0.9955591169030169,
+     "events_per_half_cycle": 0.45,
+     "count_fano": 1.2166666666666668,
+     "half_cycle_occupancy": 0.32499999999999996
+    },
+    "rattle": {
+     "hf_ratio_db": 5.761676592687598,
+     "crest_hf": 4.211901087051688,
+     "phase_concentration": 0.9336561710999427,
+     "events_per_half_cycle": 0.475,
+     "count_fano": 1.2607142857142857,
+     "half_cycle_occupancy": 0.3
+    },
+    "quiet": {
+     "hf_ratio_db": 9.470221525055027,
+     "crest_hf": 2.3334303320984997,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "-6|0.4": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.525,
+     "crest_hf": 1.0,
+     "phase_concentration": 1.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "vs_hum": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.99375,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 0.945,
+     "half_cycle_occupancy": 0.94875
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.995,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.18375,
+     "events_per_half_cycle": 0.99875,
+     "count_fano": 0.97875,
+     "half_cycle_occupancy": 0.92
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 9.576187456139788,
+     "crest_hf": 21.094646637560707,
+     "phase_concentration": 0.8900004500038537,
+     "events_per_half_cycle": 1.3875,
+     "count_fano": 2.041388888888889,
+     "half_cycle_occupancy": 0.5
+    },
+    "hum": {
+     "hf_ratio_db": 5.675807697720887,
+     "crest_hf": 6.377576965203885,
+     "phase_concentration": 0.9950216929147486,
+     "events_per_half_cycle": 0.45,
+     "count_fano": 1.3125,
+     "half_cycle_occupancy": 0.275
+    },
+    "rattle": {
+     "hf_ratio_db": 5.843770604475888,
+     "crest_hf": 5.435994047342725,
+     "phase_concentration": 0.9284287406085737,
+     "events_per_half_cycle": 0.5,
+     "count_fano": 1.313888888888889,
+     "half_cycle_occupancy": 0.325
+    },
+    "quiet": {
+     "hf_ratio_db": 9.49545112451194,
+     "crest_hf": 2.386118805746624,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "-6|1.0": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.398125,
+     "crest_hf": 1.0,
+     "phase_concentration": 1.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "vs_hum": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.99375,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 0.989375,
+     "half_cycle_occupancy": 0.98
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.9975,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.105625,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 0.980625,
+     "half_cycle_occupancy": 0.91625
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 8.853163535181107,
+     "crest_hf": 24.71258184799736,
+     "phase_concentration": 0.8886144840972963,
+     "events_per_half_cycle": 1.43,
+     "count_fano": 2.0847113941088153,
+     "half_cycle_occupancy": 0.52
+    },
+    "hum": {
+     "hf_ratio_db": 5.93469519893176,
+     "crest_hf": 7.914400185887102,
+     "phase_concentration": 0.9937725803094322,
+     "events_per_half_cycle": 0.505,
+     "count_fano": 1.3888375350140054,
+     "half_cycle_occupancy": 0.31
+    },
+    "rattle": {
+     "hf_ratio_db": 5.741392100283214,
+     "crest_hf": 5.229672739449815,
+     "phase_concentration": 0.9223148932117209,
+     "events_per_half_cycle": 0.425,
+     "count_fano": 1.1683333333333332,
+     "half_cycle_occupancy": 0.315
+    },
+    "quiet": {
+     "hf_ratio_db": 9.493843475210749,
+     "crest_hf": 2.488467620289647,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "-12|0.1": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.486875,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.975,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 0.975,
+     "half_cycle_occupancy": 0.975
+    }
+   },
+   "vs_hum": {
+    "full": 0.985,
+    "single": {
+     "hf_ratio_db": 0.9725,
+     "crest_hf": 0.99875,
+     "phase_concentration": 0.9025,
+     "events_per_half_cycle": 0.979375,
+     "count_fano": 0.969375,
+     "half_cycle_occupancy": 0.948125
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.984375,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.975,
+     "events_per_half_cycle": 0.999375,
+     "count_fano": 0.975,
+     "half_cycle_occupancy": 0.975
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 9.47664907606702,
+     "crest_hf": 8.515611028241498,
+     "phase_concentration": 0.898800017064521,
+     "events_per_half_cycle": 0.9,
+     "count_fano": 1.4464285714285716,
+     "half_cycle_occupancy": 0.5
+    },
+    "hum": {
+     "hf_ratio_db": 8.05121917020735,
+     "crest_hf": 3.0875368070261358,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.1,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    },
+    "rattle": {
+     "hf_ratio_db": 8.169420676005352,
+     "crest_hf": 2.7299238378632,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    },
+    "quiet": {
+     "hf_ratio_db": 9.47007812663361,
+     "crest_hf": 2.3031480088686678,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "-12|0.2": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.3325,
+     "crest_hf": 1.0,
+     "phase_concentration": 1.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "vs_hum": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.9675,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.575,
+     "events_per_half_cycle": 0.999375,
+     "count_fano": 0.953125,
+     "half_cycle_occupancy": 0.99375
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.985625,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.975,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 9.321183279288235,
+     "crest_hf": 9.580206264382223,
+     "phase_concentration": 0.9003011301898847,
+     "events_per_half_cycle": 0.875,
+     "count_fano": 1.5204545454545453,
+     "half_cycle_occupancy": 0.45
+    },
+    "hum": {
+     "hf_ratio_db": 8.363587818064573,
+     "crest_hf": 3.685500817780608,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.1,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    },
+    "rattle": {
+     "hf_ratio_db": 8.215741464397109,
+     "crest_hf": 2.9813659979568783,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    },
+    "quiet": {
+     "hf_ratio_db": 9.452010190926304,
+     "crest_hf": 2.344792579560985,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "-12|0.4": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.515,
+     "crest_hf": 1.0,
+     "phase_concentration": 1.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "vs_hum": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.986875,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.375,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 0.99,
+     "half_cycle_occupancy": 0.999375
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.98875,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.925,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 0.995,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 9.519556888043075,
+     "crest_hf": 11.342160208292956,
+     "phase_concentration": 0.8811817871949461,
+     "events_per_half_cycle": 0.925,
+     "count_fano": 1.5780772495755517,
+     "half_cycle_occupancy": 0.45
+    },
+    "hum": {
+     "hf_ratio_db": 8.232854915839408,
+     "crest_hf": 3.9069686094131044,
+     "phase_concentration": 0.9940671141289772,
+     "events_per_half_cycle": 0.075,
+     "count_fano": 0.8875,
+     "half_cycle_occupancy": 0.075
+    },
+    "rattle": {
+     "hf_ratio_db": 8.189735630758435,
+     "crest_hf": 3.1725488177473435,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.025,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    },
+    "quiet": {
+     "hf_ratio_db": 9.495158513661387,
+     "crest_hf": 2.4033434362248225,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "-12|1.0": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.426875,
+     "crest_hf": 1.0,
+     "phase_concentration": 1.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "vs_hum": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.998125,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.15,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.999375,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.609375,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 0.988125,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 9.381358663734254,
+     "crest_hf": 13.44572683933837,
+     "phase_concentration": 0.885418232346854,
+     "events_per_half_cycle": 0.96,
+     "count_fano": 1.7456038647342995,
+     "half_cycle_occupancy": 0.455
+    },
+    "hum": {
+     "hf_ratio_db": 8.265865110727644,
+     "crest_hf": 4.308535888372378,
+     "phase_concentration": 0.9949635229281493,
+     "events_per_half_cycle": 0.11499999999999999,
+     "count_fano": 0.95,
+     "half_cycle_occupancy": 0.1
+    },
+    "rattle": {
+     "hf_ratio_db": 8.255643934946924,
+     "crest_hf": 3.2738389862799444,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.02,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    },
+    "quiet": {
+     "hf_ratio_db": 9.477531844138547,
+     "crest_hf": 2.4713826970824417,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "-18|0.1": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.38125,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.54125,
+     "events_per_half_cycle": 0.975,
+     "count_fano": 0.54125,
+     "half_cycle_occupancy": 0.54125
+    }
+   },
+   "vs_hum": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.864375,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.54125,
+     "events_per_half_cycle": 0.975,
+     "count_fano": 0.54125,
+     "half_cycle_occupancy": 0.54125
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.93625,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.54125,
+     "events_per_half_cycle": 0.975,
+     "count_fano": 0.54125,
+     "half_cycle_occupancy": 0.54125
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 9.44069654277185,
+     "crest_hf": 4.362555743288087,
+     "phase_concentration": 0.7730765466827421,
+     "events_per_half_cycle": 0.3,
+     "count_fano": 0.6,
+     "half_cycle_occupancy": 0.2
+    },
+    "hum": {
+     "hf_ratio_db": 9.215227106092103,
+     "crest_hf": 2.333001288557315,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    },
+    "rattle": {
+     "hf_ratio_db": 9.148676746350198,
+     "crest_hf": 2.2899825967653507,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    },
+    "quiet": {
+     "hf_ratio_db": 9.513867178059613,
+     "crest_hf": 2.2585804875091795,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "-18|0.2": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.488125,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.915,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 0.915,
+     "half_cycle_occupancy": 0.915
+    }
+   },
+   "vs_hum": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.97,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.915,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 0.915,
+     "half_cycle_occupancy": 0.915
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.95875,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.915,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 0.915,
+     "half_cycle_occupancy": 0.915
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 9.469447104390007,
+     "crest_hf": 5.285196937731627,
+     "phase_concentration": 0.9105032741864634,
+     "events_per_half_cycle": 0.275,
+     "count_fano": 1.0333333333333332,
+     "half_cycle_occupancy": 0.2
+    },
+    "hum": {
+     "hf_ratio_db": 9.11633321817432,
+     "crest_hf": 2.376576958604412,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    },
+    "rattle": {
+     "hf_ratio_db": 9.163251080730625,
+     "crest_hf": 2.34871534402804,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    },
+    "quiet": {
+     "hf_ratio_db": 9.469086179110427,
+     "crest_hf": 2.3731608090956198,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "-18|0.4": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.3625,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.99,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 0.99,
+     "half_cycle_occupancy": 0.99
+    }
+   },
+   "vs_hum": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.958125,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.99,
+     "events_per_half_cycle": 0.999375,
+     "count_fano": 0.99,
+     "half_cycle_occupancy": 0.99
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.96625,
+     "crest_hf": 1.0,
+     "phase_concentration": 0.99,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 0.99,
+     "half_cycle_occupancy": 0.99
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 9.433023715578361,
+     "crest_hf": 5.303664047549967,
+     "phase_concentration": 0.8996136170006543,
+     "events_per_half_cycle": 0.225,
+     "count_fano": 1.1053571428571427,
+     "half_cycle_occupancy": 0.2
+    },
+    "hum": {
+     "hf_ratio_db": 9.131399301378858,
+     "crest_hf": 2.5800931577983848,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    },
+    "rattle": {
+     "hf_ratio_db": 9.119851225184128,
+     "crest_hf": 2.4256683893540796,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    },
+    "quiet": {
+     "hf_ratio_db": 9.486593483649546,
+     "crest_hf": 2.3926895736687475,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  },
+  "-18|1.0": {
+   "vs_quiet": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.2875,
+     "crest_hf": 1.0,
+     "phase_concentration": 1.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "vs_hum": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.9825,
+     "crest_hf": 1.0,
+     "phase_concentration": 1.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "vs_rattle": {
+    "full": 1.0,
+    "single": {
+     "hf_ratio_db": 0.984375,
+     "crest_hf": 1.0,
+     "phase_concentration": 1.0,
+     "events_per_half_cycle": 1.0,
+     "count_fano": 1.0,
+     "half_cycle_occupancy": 1.0
+    }
+   },
+   "medians": {
+    "pd": {
+     "hf_ratio_db": 9.434346542733518,
+     "crest_hf": 6.418487214421465,
+     "phase_concentration": 0.9044872949659025,
+     "events_per_half_cycle": 0.3,
+     "count_fano": 1.1411111111111112,
+     "half_cycle_occupancy": 0.21
+    },
+    "hum": {
+     "hf_ratio_db": 9.129679825889845,
+     "crest_hf": 2.5836725097327395,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    },
+    "rattle": {
+     "hf_ratio_db": 9.163841379843372,
+     "crest_hf": 2.496446188776316,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    },
+    "quiet": {
+     "hf_ratio_db": 9.491741850941617,
+     "crest_hf": 2.484267534899951,
+     "phase_concentration": 0.0,
+     "events_per_half_cycle": 0.0,
+     "count_fano": 0.0,
+     "half_cycle_occupancy": 0.0
+    }
+   }
+  }
+ }
+}
