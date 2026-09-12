@@ -45,6 +45,7 @@ the separate step, and nothing here substitutes for it.
 | 4 | Do not pay for per-record adaptive band selection. Pay instead for measuring each sensor's structural resonance once, at commissioning. | §3 — the kurtogram never beats a fixed wide band; knowing the resonance beats both by 0.5 in detection rate at −18 dB |
 | 5 | An ultrasonic-band energy ratio does not detect partial discharge against sensor noise. It is the phase-locked event structure that does. | §4 — ratio AUC 0.36–0.55 |
 | 6 | Require M consecutive exceedances rather than a higher threshold. Three-in-a-row cut false alarms from 315/month to none observed while keeping 29 h of the 48 h warning. | §5 |
+| 7 | When the physics is a two-parameter equation, put it in the model class, not in a loss term. A joint free-decay fit with shared (ωₙ, ζ) recovers the resonance to 98 Hz at −15 dB; a physics-informed network on the same windows is off by 2.8 kHz. | §6 — the PINN is the honest negative |
 
 ---
 
@@ -250,9 +251,100 @@ the detection floor for a fixed band. The chain is consistent end to end.
 
 ---
 
+## 6. Identifying the resonance from the record itself
+
+![resonance identification](figures/06_resonance_identification.png)
+
+§3 ended with a configuration step: measure each sensor's structural
+resonance once, at commissioning, with an impact test. This section asks
+whether the record can supply the resonance on its own — because the
+resonance *is* in the signal. Every impact rings the housing, and the ringing
+between impacts obeys the free-decay equation of a damped oscillator,
+
+    x'' + 2 ζ ωₙ x' + ωₙ² x = 0 .
+
+Sixteen 2.5 ms windows are cut after the strongest impacts of each record
+(high-passed above 1 kHz, so that the shaft harmonics do not sit inside a
+window as an offset and a slope), and three estimators are asked for
+(ωₙ, ζ):
+
+- **damped sine, per window** — nonlinear least squares of
+  A e^(−ζωₙt) sin(ω_d t + φ) on each window, median over windows: the
+  classical estimate.
+- **joint free-decay fit** — one (ωₙ, ζ) for all sixteen windows, with the
+  amplitude and phase of each window solved linearly (variable projection):
+  the exact-physics estimator with shared parameters.
+- **PINN** — a network x(t) for all windows, with a window embedding and
+  Fourier features, whose loss is the data misfit plus the residual of the
+  equation of motion at collocation points between the samples, (ωₙ, ζ)
+  trainable and shared across windows.
+
+The band for demodulation is then centred on the identified resonance and
+run through the §3 detection benchmark (12 machines per SNR, resonances
+drawn between 4 and 14 kHz, damping 0.01–0.05) against the fixed band, the
+kurtogram and the oracle.
+
+| SNR | kurtogram | damped sine | joint fit | PINN |
+|---|---|---|---|---|
+| −6 dB | 130 Hz | 12 Hz | 17 Hz | 56 Hz |
+| −9 dB | 253 Hz | 15 Hz | 25 Hz | 492 Hz |
+| −12 dB | 189 Hz | 178 Hz | **77 Hz** | 3 092 Hz |
+| −15 dB | 343 Hz | 847 Hz | **98 Hz** | 2 836 Hz |
+
+*Median absolute error of the resonance frequency; the 90th percentiles are
+the ticks in the figure.*
+
+**Sharing the parameters is what matters; the network is not.** Down to
+−9 dB the per-window fit is excellent and the joint fit slightly worse than
+it (the joint fit is pulled by the worst windows; the median over windows is
+not). Below that the per-window fit collapses — 847 Hz median and a damping
+error of 550 % at −15 dB — while the joint fit, which has sixteen windows'
+worth of evidence for a single pair of numbers, holds at 98 Hz and stays
+within a factor of two on the damping. In the detector that is the
+difference between AUC 0.90 and 0.91 at −15 dB, both close to the
+oracle's 1.00; at these SNRs the fixed 2–20 kHz band also detects
+perfectly, and the value of a resonance estimate is the one §3 measured at
+−18 dB.
+
+**The PINN is an honest negative.** It is the worst of the three
+estimators at every SNR (median errors of 0.5–3 kHz below −9 dB, AUC
+0.66–0.82), and the reasons are recorded because they are general:
+
+1. *A trainable normalisation in the physics loss is a bias.* The first
+   version divided the residual by ωₙ⁴ to make the loss dimensionless, so
+   "small residual" was cheapest at large ωₙ and every estimate drifted to
+   12 kHz. The normalisation must be a fixed constant.
+2. *Fourier features above the Nyquist frequency are a loophole.* With
+   features reaching 25 kHz on 48 kHz samples, the network could oscillate
+   *between* the samples and satisfy the equation of motion at the samples
+   for any ωₙ. Features must stop below Nyquist (16 kHz here), and the
+   residual must be evaluated at collocation points between the samples.
+3. *With the loopholes closed, the estimator is still poor.* The network
+   absorbs noise into x(t), and the residual's dependence on ωₙ is then
+   weak; the optimiser often leaves ωₙ near its 8 kHz initialisation
+   (machines at 11–13 kHz come back at 7.5–8 kHz). The joint fit has no
+   such freedom: it can *only* represent damped sinusoids, and that
+   restriction is exactly the prior knowledge that makes the estimate
+   robust at low SNR.
+
+The rule this gives the framework: when the physics is a two-parameter
+equation and the data are short windows of it, put the physics in the
+*model class* (a damped sinusoid with shared parameters), not in a loss
+term on a free function. The PINN belongs where the field is not known in
+closed form; here it is.
+
+**What this changes in rule 4.** The commissioning impact test remains
+the right thing to do — it costs a minute and needs no algorithm. But where
+it was not done, a joint free-decay fit over the strongest impacts of a
+faulty record recovers the resonance to within 100 Hz at −15 dB, which is
+enough to place the demodulation band; the record can bootstrap its own
+oracle.
+
+---
+
 ## Verification
 
-Physics and estimator checks run as a test suite (8 checks, all passing):
+Physics and estimator checks run as a test suite (12 checks, all passing):
 
 - kinematic frequencies reproduce the tabulated multipliers for a documented
   bearing geometry to 2 × 10⁻⁵ — including resolving an apparent factor-of-two
@@ -267,6 +359,15 @@ Physics and estimator checks run as a test suite (8 checks, all passing):
   to be re-derived at every operating point
 - discharge records are more impulsive, and their per-half-cycle counts more
   variable (Fano > 1 vs < 1), than mechanical ones
+- the impact windows contain the resonance and no offset: after the
+  high-pass, the strongest line in a window sits at the resonance
+- the joint free-decay fit recovers (ωₙ, ζ) from sixteen noisy windows to
+  1 % and 20 %
+- the network's Fourier features reach every resonance the benchmark draws
+  and stop below the Nyquist frequency
+- **the §6 result is pinned**: at every SNR the joint fit is at least as
+  good as the kurtogram at the median, and the network is not better than
+  the estimator without a network
 
 ---
 
@@ -287,13 +388,29 @@ Physics and estimator checks run as a test suite (8 checks, all passing):
 
 ## Source code
 
-**The source code for this project is not public.** This page documents the
-method, the measurements and the conclusions; the implementation is held in a
-private repository and is available under NDA.
+The physics core is public in this repository:
 
-What is described here: the signal models, the demodulation and event-detection
-front ends, the detection statistics, the experiment protocols, and the
-figures generated from their outputs.
+- `src/kinematics.py` — bearing defect frequencies from geometry
+- `src/bearing_sim.py` — the impulse-train / resonance signal model
+- `src/envelope.py` — demodulation, envelope spectrum, harmonic statistic,
+  spectral kurtosis and the kurtogram
+- `src/exp2_detection.py` — the detection benchmark of §3 (fleet of
+  machines, band strategies, pooled scoring)
+- `src/exp5_resonance_pinn.py` — the three resonance estimators of §6 and
+  the benchmark that compares them
+- `tests/test_all.py` — the twelve checks above (the two discharge checks
+  need the private model and skip themselves without it)
+
+The partial-discharge model and features (§4), the slip and alarm-policy
+experiments (§2, §5) and the figure scripts are held in a private
+repository.
+`results/` holds every number on this page as JSON.
+
+```
+pip install -r requirements.txt
+python tests/test_all.py
+python src/exp5_resonance_pinn.py     # ~2 h on a laptop CPU
+```
 
 ---
 
@@ -308,4 +425,5 @@ transition and combustion rather than by rotation; it is not covered here.
 
 ## Licence
 
-Documentation and figures: CC BY 4.0.
+Documentation, figures and result files: CC BY 4.0. Source code in `src/`
+and `tests/`: MIT.

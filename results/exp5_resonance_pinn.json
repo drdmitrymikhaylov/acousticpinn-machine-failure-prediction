@@ -1,0 +1,213 @@
+{
+ "config": {
+  "snrs": [
+   -6,
+   -9,
+   -12,
+   -15
+  ],
+  "n_machines": 12,
+  "win_s": 0.0025,
+  "n_win": 16
+ },
+ "cells": {
+  "-6": {
+   "fixed": {
+    "auc": 1.0,
+    "detection_at_5pct_fa": 1.0
+   },
+   "kurtogram": {
+    "auc": 1.0,
+    "detection_at_5pct_fa": 1.0
+   },
+   "oracle": {
+    "auc": 1.0,
+    "detection_at_5pct_fa": 1.0
+   },
+   "damped_sine": {
+    "auc": 1.0,
+    "detection_at_5pct_fa": 1.0
+   },
+   "joint": {
+    "auc": 1.0,
+    "detection_at_5pct_fa": 1.0
+   },
+   "pinn": {
+    "auc": 1.0,
+    "detection_at_5pct_fa": 1.0
+   }
+  },
+  "-9": {
+   "fixed": {
+    "auc": 1.0,
+    "detection_at_5pct_fa": 1.0
+   },
+   "kurtogram": {
+    "auc": 1.0,
+    "detection_at_5pct_fa": 1.0
+   },
+   "oracle": {
+    "auc": 1.0,
+    "detection_at_5pct_fa": 1.0
+   },
+   "damped_sine": {
+    "auc": 1.0,
+    "detection_at_5pct_fa": 1.0
+   },
+   "joint": {
+    "auc": 1.0,
+    "detection_at_5pct_fa": 1.0
+   },
+   "pinn": {
+    "auc": 0.8194444444444444,
+    "detection_at_5pct_fa": 0.75
+   }
+  },
+  "-12": {
+   "fixed": {
+    "auc": 1.0,
+    "detection_at_5pct_fa": 1.0
+   },
+   "kurtogram": {
+    "auc": 1.0,
+    "detection_at_5pct_fa": 1.0
+   },
+   "oracle": {
+    "auc": 1.0,
+    "detection_at_5pct_fa": 1.0
+   },
+   "damped_sine": {
+    "auc": 0.9375,
+    "detection_at_5pct_fa": 0.9166666666666666
+   },
+   "joint": {
+    "auc": 1.0,
+    "detection_at_5pct_fa": 1.0
+   },
+   "pinn": {
+    "auc": 0.6597222222222222,
+    "detection_at_5pct_fa": 0.4166666666666667
+   }
+  },
+  "-15": {
+   "fixed": {
+    "auc": 1.0,
+    "detection_at_5pct_fa": 1.0
+   },
+   "kurtogram": {
+    "auc": 0.8263888888888888,
+    "detection_at_5pct_fa": 0.75
+   },
+   "oracle": {
+    "auc": 1.0,
+    "detection_at_5pct_fa": 1.0
+   },
+   "damped_sine": {
+    "auc": 0.8958333333333334,
+    "detection_at_5pct_fa": 0.8333333333333334
+   },
+   "joint": {
+    "auc": 0.9097222222222222,
+    "detection_at_5pct_fa": 0.8333333333333334
+   },
+   "pinn": {
+    "auc": 0.7152777777777778,
+    "detection_at_5pct_fa": 0.5833333333333334
+   }
+  }
+ },
+ "resonance_error": {
+  "-6": {
+   "kurtogram": {
+    "median_abs_err_hz": 130.29684587705106,
+    "p90_abs_err_hz": 550.8894177944485
+   },
+   "damped_sine": {
+    "median_abs_err_hz": 12.393920757303022,
+    "p90_abs_err_hz": 37.34186561081624
+   },
+   "joint": {
+    "median_abs_err_hz": 16.514444831743276,
+    "p90_abs_err_hz": 80.9969515787655
+   },
+   "pinn": {
+    "median_abs_err_hz": 55.67970455066825,
+    "p90_abs_err_hz": 3094.510239424415
+   },
+   "zeta_rel_err": {
+    "damped_sine": 0.19306125831583237,
+    "joint": 0.09203767098621701,
+    "pinn": 0.20914729645665014
+   }
+  },
+  "-9": {
+   "kurtogram": {
+    "median_abs_err_hz": 252.75380098139158,
+    "p90_abs_err_hz": 469.8659743908912
+   },
+   "damped_sine": {
+    "median_abs_err_hz": 15.010300317672773,
+    "p90_abs_err_hz": 41.79145676542976
+   },
+   "joint": {
+    "median_abs_err_hz": 24.60243399871615,
+    "p90_abs_err_hz": 54.44575514473755
+   },
+   "pinn": {
+    "median_abs_err_hz": 492.09663018715537,
+    "p90_abs_err_hz": 4130.319923862602
+   },
+   "zeta_rel_err": {
+    "damped_sine": 0.586641911535754,
+    "joint": 0.23621683931519963,
+    "pinn": 0.09692482117444323
+   }
+  },
+  "-12": {
+   "kurtogram": {
+    "median_abs_err_hz": 188.97153926091642,
+    "p90_abs_err_hz": 486.0004259255233
+   },
+   "damped_sine": {
+    "median_abs_err_hz": 178.45256723648163,
+    "p90_abs_err_hz": 1416.2125133012419
+   },
+   "joint": {
+    "median_abs_err_hz": 76.62739453244285,
+    "p90_abs_err_hz": 209.18487311985302
+   },
+   "pinn": {
+    "median_abs_err_hz": 3091.638385063573,
+    "p90_abs_err_hz": 4777.4550099411645
+   },
+   "zeta_rel_err": {
+    "damped_sine": 2.0057978918780504,
+    "joint": 0.2679614960164408,
+    "pinn": 0.41257184760143595
+   }
+  },
+  "-15": {
+   "kurtogram": {
+    "median_abs_err_hz": 342.6082571551756,
+    "p90_abs_err_hz": 9175.114517230832
+   },
+   "damped_sine": {
+    "median_abs_err_hz": 847.1491605463275,
+    "p90_abs_err_hz": 4069.5550369950147
+   },
+   "joint": {
+    "median_abs_err_hz": 97.63039485602167,
+    "p90_abs_err_hz": 8243.522076281326
+   },
+   "pinn": {
+    "median_abs_err_hz": 2836.32023123142,
+    "p90_abs_err_hz": 6067.076579750362
+   },
+   "zeta_rel_err": {
+    "damped_sine": 5.531576107622158,
+    "joint": 0.5593431080571369,
+    "pinn": 0.2332198105612278
+   }
+  }
+ }
+}
