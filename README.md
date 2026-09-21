@@ -42,7 +42,7 @@ the separate step, and nothing here substitutes for it.
 | 1 | Never look for a defect frequency in the raw spectrum. Demodulate. | §1 — detection rate 0.24 vs 1.00 at −12 dB |
 | 2 | Sum no more than `k_max ≈ 0.225 / slip` harmonics. At 1% slip that is 22; at 4% it is 6. | §2, verified to 3% over a 16× range of slip |
 | 3 | Widen the harmonic window only if the slip is a random walk. For independent jitter a wider window collects noise, not signal. | §2 — linewidth grows as k², or not at all |
-| 4 | Do not pay for per-record adaptive band selection. Pay instead for measuring each sensor's structural resonance once, at commissioning. | §3 — the kurtogram never beats a fixed wide band; knowing the resonance beats both by 0.5 in detection rate at −18 dB |
+| 4 | Do not pay for per-record adaptive band selection. Pay instead for measuring each sensor's structural resonance once, at commissioning. | §3 — the kurtogram never beats a fixed wide band by more than the noise of 90 records, and with an interferer it is behind at every SNR down to −12 dB (p < 0.05); knowing the resonance beats both by 0.5 in detection rate at −18 dB (+45 of 90 records, p ≈ 10⁻¹³) |
 | 5 | An ultrasonic-band energy ratio does not detect partial discharge against sensor noise. It is the phase-locked event structure that does. | §4 — ratio AUC 0.36–0.55 |
 | 6 | Require M consecutive exceedances rather than a higher threshold. Three-in-a-row cut false alarms from 315/month to none observed while keeping 29 h of the 48 h warning. | §5 |
 | 7 | When the physics is a two-parameter equation, put it in the model class, not in a loss term. A joint free-decay fit with shared (ωₙ, ζ) recovers the resonance to 98 Hz at −15 dB; a physics-informed network on the same windows is off by 2.8 kHz. | §6 — the PINN is the honest negative |
@@ -151,10 +151,33 @@ for everything; the kurtogram, choosing per record; and an oracle centred on
 that record's true resonance.
 
 Adaptive band selection **does not beat the fixed wide band**. On a white
-background the fixed band is at or above the kurtogram everywhere. With a
-strong band-limited interferer over the lower half of the band — cavitation,
-gear mesh, a neighbouring machine — the kurtogram pulls ahead only in the
-last two SNR points, and not by much.
+background the fixed band is at or above the kurtogram down to −15 dB; at
+−18 dB the kurtogram is ahead, 52 against 42 of 90 records, which is inside
+the noise (two-proportion z = 1.5, p = 0.14). An earlier version of this
+paragraph said "at or above everywhere", which the table below shows is not
+what the file says. With a strong band-limited interferer over the lower half
+of the band — cavitation, gear mesh, a neighbouring machine — the kurtogram
+pulls ahead only in the last two SNR points, by 5 records of 90 (p ≈ 0.4),
+and it is **significantly behind the fixed band at every SNR from 0 to
+−12 dB** (8–10 records of 90 behind, p = 0.003–0.03), because the interferer
+is impulsive enough to attract the kurtosis maximum.
+
+Every rate on this page in §3 is pooled over three defect types (outer race,
+inner race, rolling element), 30 records each, so 90 records per cell. With
+the interval attached (`results/band_selection_intervals.json`, Wilson 95 %):
+
+| SNR | background | fixed 2–20 kHz | kurtogram | oracle | kurtogram − fixed | oracle − fixed |
+|---|---|---|---|---|---|---|
+| −12 dB | white | 90/90 | 88/90 | 90/90 | −2, p = 0.16 | 0 |
+| −15 dB | white | 89/90 | 84/90 | 90/90 | −5, p = 0.05 | +1 |
+| −18 dB | white | 42/90 [0.37, 0.57] | 52/90 [0.47, 0.67] | 87/90 [0.91, 0.99] | +10, p = 0.14 | +45, p ≈ 10⁻¹³ |
+| −12 dB | interferer | 82/90 | 72/90 | 90/90 | −10, p = 0.03 | +8, p = 0.004 |
+| −15 dB | interferer | 68/90 [0.66, 0.83] | 73/90 [0.72, 0.88] | 87/90 | +5, p = 0.37 | +19, p = 4 × 10⁻⁵ |
+| −18 dB | interferer | 37/90 [0.32, 0.51] | 42/90 [0.37, 0.57] | 84/90 [0.86, 0.97] | +5, p = 0.45 | +47, p ≈ 10⁻¹³ |
+
+The per-defect split (in the same file) shows no defect type carrying the
+gap: at −18 dB on white the fixed band detects 12, 17 and 13 of 30 for the
+outer race, inner race and rolling element, the kurtogram 15, 18 and 19.
 
 The oracle, meanwhile, is far ahead of both: at −18 dB it detects 0.97 where
 the fixed band manages 0.47 and the kurtogram 0.58. The kurtogram's estimate
@@ -398,8 +421,13 @@ The physics core is public in this repository:
   machines, band strategies, pooled scoring)
 - `src/exp5_resonance_pinn.py` — the three resonance estimators of §6 and
   the benchmark that compares them
+- `src/band_selection_intervals.py` — reads the §3 result files and attaches
+  counts, Wilson intervals and two-proportion tests to every rate
 - `tests/test_all.py` — the twelve checks above (the two discharge checks
   need the private model and skip themselves without it)
+- `tests/test_readme_numbers.py` — pins every number quoted in §1, §3, §5
+  and §6 to the files in `results/`, so a regenerated result that no longer
+  matches the text fails
 
 The partial-discharge model and features (§4), the slip and alarm-policy
 experiments (§2, §5) and the figure scripts are held in a private
@@ -409,6 +437,7 @@ repository.
 ```
 pip install -r requirements.txt
 python tests/test_all.py
+python -m pytest tests/test_readme_numbers.py
 python src/exp5_resonance_pinn.py     # ~2 h on a laptop CPU
 ```
 
