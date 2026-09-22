@@ -1,4 +1,4 @@
-"""Identifying the resonance with the equation of motion, not a kurtogram.
+"""Estimating the structural resonance from the free decay between impacts, using the equation of motion.
 
 Every envelope method has to choose a demodulation band, and exp2 showed
 that the choice is most of the difference between strategies: the kurtogram
