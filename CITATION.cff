@@ -1,11 +1,22 @@
 cff-version: 1.2.0
 message: "If you use this repository, please cite it as below."
 type: software
-title: "acousticpinn-machine-failure-prediction"
+title: "AcousticPINN: Detection Limits for Acoustic Machine-Failure Prediction"
+abstract: "Measured detection limits for hearing a machine fail"
 authors:
   - family-names: Mikhaylov
     given-names: Dmitry
     orcid: "https://orcid.org/0009-0009-2108-6820"
+    affiliation: "Abu Dhabi Maritime Academy, AD Ports Group"
 repository-code: "https://github.com/drdmitrymikhaylov/acousticpinn-machine-failure-prediction"
+url: "https://github.com/drdmitrymikhaylov/acousticpinn-machine-failure-prediction"
 license: "CC-BY-4.0"
-year: 2026
+keywords:
+  - "acoustic emission"
+  - "bearing fault diagnosis"
+  - "condition monitoring"
+  - "partial discharge"
+  - "predictive maintenance"
+  - "signal processing"
+  - "vibration analysis"
+date-released: "2026-09-08"
