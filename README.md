@@ -19,6 +19,10 @@ This repository documents the measurements behind those answers.
 
 ---
 
+## Origin
+
+Listening to machines is where my physics-AI work began. My first papers on the acoustic diagnostics of power-plant equipment appeared in Chinese engineering journals: on 5G monitoring of power-plant equipment (*Science & Technology Information*, 2022) and on diagnosing combined heat and power plant equipment from acoustic anomalies (*China News Telecommunications*, 2023). From there the methods went into real plants: pumps, fans and production lines running around the clock. This repository opens the engine behind that work, with bearing faults and resonances built from their equations and every detection limit measured.
+
 ## What the numbers are measured on
 
 Every result here comes from **physical signal models**, not from plant
