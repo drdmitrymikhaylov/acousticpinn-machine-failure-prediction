@@ -1,0 +1,741 @@
+{
+ "config": {
+  "n_machines": 24,
+  "held_out_samples_per_machine": 72,
+  "measurements_per_month": 4320.0,
+  "n_shuffles": 2000,
+  "n_boot": 10000,
+  "n_synthetic_machines": 20000,
+  "seed": 20261006
+ },
+ "reproduces_published_table": true,
+ "policies": {
+  "0.95|1": {
+   "quantile": 0.95,
+   "consecutive": 1,
+   "false_alarm_events": 126,
+   "held_out_samples": 1728,
+   "machines_with_a_false_alarm": 24,
+   "events_per_machine": [
+    2,
+    3,
+    7,
+    3,
+    8,
+    6,
+    5,
+    5,
+    6,
+    2,
+    3,
+    13,
+    5,
+    4,
+    5,
+    3,
+    2,
+    7,
+    3,
+    10,
+    9,
+    5,
+    4,
+    6
+   ],
+   "false_alarms_per_month": 315.0,
+   "ci95_machines_resampled": [
+    255.0,
+    382.5
+   ],
+   "reshuffled_split": {
+    "mean_events": 106.967,
+    "mean_per_month": 267.41749999999996,
+    "events_2p5": 81.0,
+    "events_97p5": 134.02499999999986,
+    "share_of_splits_with_at_least_observed": 0.0905,
+    "share_of_splits_with_no_event": 0.0
+   },
+   "warning_h": {
+    "median": 46.66666666666667,
+    "min": 42.666666666666664,
+    "q25": 44.833333333333336,
+    "q75": 47.291666666666664,
+    "max": 48.0
+   },
+   "snr_at_alarm_db": {
+    "median": -29.2473865,
+    "earliest": -30.0,
+    "latest": -26.989547
+   }
+  },
+  "0.95|2": {
+   "quantile": 0.95,
+   "consecutive": 2,
+   "false_alarm_events": 9,
+   "held_out_samples": 1728,
+   "machines_with_a_false_alarm": 6,
+   "events_per_machine": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    1,
+    0,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    2,
+    1,
+    0,
+    0,
+    0
+   ],
+   "false_alarms_per_month": 22.5,
+   "ci95_machines_resampled": [
+    7.5,
+    42.5
+   ],
+   "reshuffled_split": {
+    "mean_events": 7.7905,
+    "mean_per_month": 19.47625,
+    "events_2p5": 2.0,
+    "events_97p5": 15.0,
+    "share_of_splits_with_at_least_observed": 0.3725,
+    "share_of_splits_with_no_event": 0.0025
+   },
+   "warning_h": {
+    "median": 34.0,
+    "min": 25.666666666666668,
+    "q25": 30.333333333333332,
+    "q75": 36.58333333333333,
+    "max": 46.833333333333336
+   },
+   "snr_at_alarm_db": {
+    "median": -22.097561,
+    "earliest": -29.341463,
+    "latest": -17.393728
+   }
+  },
+  "0.95|3": {
+   "quantile": 0.95,
+   "consecutive": 3,
+   "false_alarm_events": 0,
+   "held_out_samples": 1728,
+   "machines_with_a_false_alarm": 0,
+   "events_per_machine": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "false_alarms_per_month": 0.0,
+   "ci95_machines_resampled": [
+    0.0,
+    0.0
+   ],
+   "reshuffled_split": {
+    "mean_events": 0.659,
+    "mean_per_month": 1.6475000000000002,
+    "events_2p5": 0.0,
+    "events_97p5": 3.0,
+    "share_of_splits_with_at_least_observed": 1.0,
+    "share_of_splits_with_no_event": 0.5665
+   },
+   "warning_h": {
+    "median": 29.166666666666668,
+    "min": 24.166666666666668,
+    "q25": 27.0,
+    "q75": 30.333333333333332,
+    "max": 34.166666666666664
+   },
+   "snr_at_alarm_db": {
+    "median": -19.369338,
+    "earliest": -22.191638,
+    "latest": -16.547038
+   }
+  },
+  "0.99|1": {
+   "quantile": 0.99,
+   "consecutive": 1,
+   "false_alarm_events": 45,
+   "held_out_samples": 1728,
+   "machines_with_a_false_alarm": 19,
+   "events_per_machine": [
+    2,
+    1,
+    4,
+    0,
+    3,
+    6,
+    2,
+    1,
+    2,
+    0,
+    1,
+    8,
+    3,
+    0,
+    1,
+    2,
+    0,
+    2,
+    1,
+    0,
+    2,
+    2,
+    1,
+    1
+   ],
+   "false_alarms_per_month": 112.5,
+   "ci95_machines_resampled": [
+    72.50000000000001,
+    162.5
+   ],
+   "reshuffled_split": {
+    "mean_events": 38.075,
+    "mean_per_month": 95.1875,
+    "events_2p5": 23.0,
+    "events_97p5": 56.0,
+    "share_of_splits_with_at_least_observed": 0.208,
+    "share_of_splits_with_no_event": 0.0
+   },
+   "warning_h": {
+    "median": 44.33333333333333,
+    "min": 25.333333333333332,
+    "q25": 38.916666666666664,
+    "q75": 46.208333333333336,
+    "max": 47.833333333333336
+   },
+   "snr_at_alarm_db": {
+    "median": -27.9303135,
+    "earliest": -29.905923,
+    "latest": -17.205575
+   }
+  },
+  "0.99|2": {
+   "quantile": 0.99,
+   "consecutive": 2,
+   "false_alarm_events": 1,
+   "held_out_samples": 1728,
+   "machines_with_a_false_alarm": 1,
+   "events_per_machine": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "false_alarms_per_month": 2.5,
+   "ci95_machines_resampled": [
+    0.0,
+    7.5
+   ],
+   "reshuffled_split": {
+    "mean_events": 1.2055,
+    "mean_per_month": 3.0137500000000004,
+    "events_2p5": 0.0,
+    "events_97p5": 4.0,
+    "share_of_splits_with_at_least_observed": 0.658,
+    "share_of_splits_with_no_event": 0.342
+   },
+   "warning_h": {
+    "median": 30.75,
+    "min": 23.666666666666668,
+    "q25": 27.291666666666664,
+    "q75": 32.70833333333333,
+    "max": 34.333333333333336
+   },
+   "snr_at_alarm_db": {
+    "median": -20.263066000000002,
+    "earliest": -22.285714,
+    "latest": -16.264808
+   }
+  },
+  "0.99|3": {
+   "quantile": 0.99,
+   "consecutive": 3,
+   "false_alarm_events": 0,
+   "held_out_samples": 1728,
+   "machines_with_a_false_alarm": 0,
+   "events_per_machine": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "false_alarms_per_month": 0.0,
+   "ci95_machines_resampled": [
+    0.0,
+    0.0
+   ],
+   "reshuffled_split": {
+    "mean_events": 0.0525,
+    "mean_per_month": 0.13125,
+    "events_2p5": 0.0,
+    "events_97p5": 1.0,
+    "share_of_splits_with_at_least_observed": 1.0,
+    "share_of_splits_with_no_event": 0.953
+   },
+   "warning_h": {
+    "median": 27.5,
+    "min": 23.5,
+    "q25": 25.666666666666668,
+    "q75": 29.083333333333332,
+    "max": 34.166666666666664
+   },
+   "snr_at_alarm_db": {
+    "median": -18.428571499999997,
+    "earliest": -22.191638,
+    "latest": -16.170732
+   }
+  },
+  "0.999|1": {
+   "quantile": 0.999,
+   "consecutive": 1,
+   "false_alarm_events": 33,
+   "held_out_samples": 1728,
+   "machines_with_a_false_alarm": 13,
+   "events_per_machine": [
+    2,
+    1,
+    3,
+    0,
+    3,
+    6,
+    0,
+    0,
+    1,
+    0,
+    1,
+    7,
+    2,
+    0,
+    0,
+    2,
+    0,
+    2,
+    1,
+    0,
+    0,
+    2,
+    0,
+    0
+   ],
+   "false_alarms_per_month": 82.5,
+   "ci95_machines_resampled": [
+    42.5,
+    130.0
+   ],
+   "reshuffled_split": {
+    "mean_events": 24.7045,
+    "mean_per_month": 61.761250000000004,
+    "events_2p5": 12.0,
+    "events_97p5": 40.0,
+    "share_of_splits_with_at_least_observed": 0.141,
+    "share_of_splits_with_no_event": 0.0
+   },
+   "warning_h": {
+    "median": 41.5,
+    "min": 20.666666666666668,
+    "q25": 32.916666666666664,
+    "q75": 46.208333333333336,
+    "max": 47.833333333333336
+   },
+   "snr_at_alarm_db": {
+    "median": -26.331010499999998,
+    "earliest": -29.905923,
+    "latest": -14.571429
+   }
+  },
+  "0.999|2": {
+   "quantile": 0.999,
+   "consecutive": 2,
+   "false_alarm_events": 1,
+   "held_out_samples": 1728,
+   "machines_with_a_false_alarm": 1,
+   "events_per_machine": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "false_alarms_per_month": 2.5,
+   "ci95_machines_resampled": [
+    0.0,
+    7.5
+   ],
+   "reshuffled_split": {
+    "mean_events": 0.6605,
+    "mean_per_month": 1.6512499999999999,
+    "events_2p5": 0.0,
+    "events_97p5": 3.0,
+    "share_of_splits_with_at_least_observed": 0.4575,
+    "share_of_splits_with_no_event": 0.5425
+   },
+   "warning_h": {
+    "median": 28.416666666666664,
+    "min": 20.5,
+    "q25": 27.041666666666668,
+    "q75": 31.125,
+    "max": 34.333333333333336
+   },
+   "snr_at_alarm_db": {
+    "median": -18.945993,
+    "earliest": -22.285714,
+    "latest": -14.477352
+   }
+  },
+  "0.999|3": {
+   "quantile": 0.999,
+   "consecutive": 3,
+   "false_alarm_events": 0,
+   "held_out_samples": 1728,
+   "machines_with_a_false_alarm": 0,
+   "events_per_machine": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "false_alarms_per_month": 0.0,
+   "ci95_machines_resampled": [
+    0.0,
+    0.0
+   ],
+   "reshuffled_split": {
+    "mean_events": 0.0285,
+    "mean_per_month": 0.07125000000000001,
+    "events_2p5": 0.0,
+    "events_97p5": 1.0,
+    "share_of_splits_with_at_least_observed": 1.0,
+    "share_of_splits_with_no_event": 0.973
+   },
+   "warning_h": {
+    "median": 26.5,
+    "min": 18.833333333333332,
+    "q25": 25.666666666666668,
+    "q75": 27.166666666666668,
+    "max": 34.166666666666664
+   },
+   "snr_at_alarm_db": {
+    "median": -17.864111,
+    "earliest": -22.191638,
+    "latest": -13.536585
+   }
+  }
+ },
+ "quantile_of_72_samples": {
+  "0.95": {
+   "nominal_rate": 0.050000000000000044,
+   "between_order_statistics": [
+    68,
+    69
+   ],
+   "interpolation_weight_on_upper": 0.45000000000000284,
+   "expected_rate_bounds": [
+    0.0547945205479452,
+    0.0684931506849315
+   ],
+   "observed_rate": 0.07291666666666667,
+   "reshuffled_mean_rate": 0.06190219907407407
+  },
+  "0.99": {
+   "nominal_rate": 0.010000000000000009,
+   "between_order_statistics": [
+    71,
+    72
+   ],
+   "interpolation_weight_on_upper": 0.29000000000000625,
+   "expected_rate_bounds": [
+    0.0136986301369863,
+    0.0273972602739726
+   ],
+   "observed_rate": 0.026041666666666668,
+   "reshuffled_mean_rate": 0.02203414351851852
+  },
+  "0.999": {
+   "nominal_rate": 0.0010000000000000009,
+   "between_order_statistics": [
+    71,
+    72
+   ],
+   "interpolation_weight_on_upper": 0.929000000000002,
+   "expected_rate_bounds": [
+    0.0136986301369863,
+    0.0273972602739726
+   ],
+   "observed_rate": 0.019097222222222224,
+   "reshuffled_mean_rate": 0.014296585648148149
+  }
+ },
+ "baseline_memory": {
+  "lag1_autocorrelation_mean": -0.007373697489383162,
+  "lag1_autocorrelation_min": -0.12755649691393037,
+  "lag1_autocorrelation_max": 0.1106575615007976,
+  "expected_for_independent_samples": -0.006944444444444444,
+  "se_per_machine": 0.08333333333333333
+ },
+ "memory": {
+  "0.0": {
+   "0.95|1": {
+    "false_alarms_per_month": 267.672,
+    "share_of_machine_days_with_an_alarm": 0.9582
+   },
+   "0.95|2": {
+    "false_alarms_per_month": 19.461000000000002,
+    "share_of_machine_days_with_an_alarm": 0.24005
+   },
+   "0.95|3": {
+    "false_alarms_per_month": 1.689,
+    "share_of_machine_days_with_an_alarm": 0.02475
+   },
+   "0.99|1": {
+    "false_alarms_per_month": 93.252,
+    "share_of_machine_days_with_an_alarm": 0.67775
+   },
+   "0.99|2": {
+    "false_alarms_per_month": 3.057,
+    "share_of_machine_days_with_an_alarm": 0.04495
+   },
+   "0.99|3": {
+    "false_alarms_per_month": 0.15300000000000002,
+    "share_of_machine_days_with_an_alarm": 0.0024
+   },
+   "0.999|1": {
+    "false_alarms_per_month": 61.809,
+    "share_of_machine_days_with_an_alarm": 0.51445
+   },
+   "0.999|2": {
+    "false_alarms_per_month": 1.737,
+    "share_of_machine_days_with_an_alarm": 0.0257
+   },
+   "0.999|3": {
+    "false_alarms_per_month": 0.075,
+    "share_of_machine_days_with_an_alarm": 0.00115
+   }
+  },
+  "0.3": {
+   "0.95|1": {
+    "false_alarms_per_month": 277.2,
+    "share_of_machine_days_with_an_alarm": 0.94705
+   },
+   "0.95|2": {
+    "false_alarms_per_month": 50.442,
+    "share_of_machine_days_with_an_alarm": 0.446
+   },
+   "0.95|3": {
+    "false_alarms_per_month": 10.233,
+    "share_of_machine_days_with_an_alarm": 0.11745
+   },
+   "0.99|1": {
+    "false_alarms_per_month": 100.77,
+    "share_of_machine_days_with_an_alarm": 0.6718
+   },
+   "0.99|2": {
+    "false_alarms_per_month": 11.385,
+    "share_of_machine_days_with_an_alarm": 0.13935
+   },
+   "0.99|3": {
+    "false_alarms_per_month": 1.467,
+    "share_of_machine_days_with_an_alarm": 0.0205
+   },
+   "0.999|1": {
+    "false_alarms_per_month": 67.692,
+    "share_of_machine_days_with_an_alarm": 0.5183
+   },
+   "0.999|2": {
+    "false_alarms_per_month": 6.6240000000000006,
+    "share_of_machine_days_with_an_alarm": 0.08475
+   },
+   "0.999|3": {
+    "false_alarms_per_month": 0.75,
+    "share_of_machine_days_with_an_alarm": 0.01065
+   }
+  },
+  "0.6": {
+   "0.95|1": {
+    "false_alarms_per_month": 305.33700000000005,
+    "share_of_machine_days_with_an_alarm": 0.89845
+   },
+   "0.95|2": {
+    "false_alarms_per_month": 113.73,
+    "share_of_machine_days_with_an_alarm": 0.5989
+   },
+   "0.95|3": {
+    "false_alarms_per_month": 47.288999999999994,
+    "share_of_machine_days_with_an_alarm": 0.32455
+   },
+   "0.99|1": {
+    "false_alarms_per_month": 125.82600000000001,
+    "share_of_machine_days_with_an_alarm": 0.63765
+   },
+   "0.99|2": {
+    "false_alarms_per_month": 37.251,
+    "share_of_machine_days_with_an_alarm": 0.28655
+   },
+   "0.99|3": {
+    "false_alarms_per_month": 12.783000000000001,
+    "share_of_machine_days_with_an_alarm": 0.11595
+   },
+   "0.999|1": {
+    "false_alarms_per_month": 88.71600000000001,
+    "share_of_machine_days_with_an_alarm": 0.5146
+   },
+   "0.999|2": {
+    "false_alarms_per_month": 24.369,
+    "share_of_machine_days_with_an_alarm": 0.2049
+   },
+   "0.999|3": {
+    "false_alarms_per_month": 7.917,
+    "share_of_machine_days_with_an_alarm": 0.0751
+   }
+  },
+  "0.9": {
+   "0.95|1": {
+    "false_alarms_per_month": 495.216,
+    "share_of_machine_days_with_an_alarm": 0.70135
+   },
+   "0.95|2": {
+    "false_alarms_per_month": 358.089,
+    "share_of_machine_days_with_an_alarm": 0.5864
+   },
+   "0.95|3": {
+    "false_alarms_per_month": 277.875,
+    "share_of_machine_days_with_an_alarm": 0.493
+   },
+   "0.99|1": {
+    "false_alarms_per_month": 300.786,
+    "share_of_machine_days_with_an_alarm": 0.55425
+   },
+   "0.99|2": {
+    "false_alarms_per_month": 208.287,
+    "share_of_machine_days_with_an_alarm": 0.4321
+   },
+   "0.99|3": {
+    "false_alarms_per_month": 156.483,
+    "share_of_machine_days_with_an_alarm": 0.3447
+   },
+   "0.999|1": {
+    "false_alarms_per_month": 250.041,
+    "share_of_machine_days_with_an_alarm": 0.5016
+   },
+   "0.999|2": {
+    "false_alarms_per_month": 170.565,
+    "share_of_machine_days_with_an_alarm": 0.3814
+   },
+   "0.999|3": {
+    "false_alarms_per_month": 126.693,
+    "share_of_machine_days_with_an_alarm": 0.30195
+   }
+  }
+ }
+}

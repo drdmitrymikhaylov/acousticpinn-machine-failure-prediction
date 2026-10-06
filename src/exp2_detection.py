@@ -32,7 +32,7 @@ import numpy as np
 
 from bearing_sim import Resonance, band_limited_noise, simulate, simulate_healthy
 from envelope import envelope_spectrum, harmonic_statistic, kurtogram
-from kinematics import SKF_6205
+from kinematics import BEARING_6205
 
 FS = 48000.0
 DURATION = 1.0
@@ -58,7 +58,7 @@ def draw_machine(rng):
 
 
 def defect_frequency(fault, fr):
-    o = SKF_6205.orders()
+    o = BEARING_6205.orders()
     if fault == "BPFO":
         return o["BPFO"] * fr, 0.0, None
     if fault == "BPFI":

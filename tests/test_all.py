@@ -8,7 +8,7 @@ import numpy as np
 
 from bearing_sim import Resonance, simulate, simulate_healthy
 from envelope import envelope_spectrum, harmonic_statistic, spectral_kurtosis
-from kinematics import SKF_6205
+from kinematics import BEARING_6205
 try:                                    # the discharge model is in the private repository
     from pd_features import features
     from pd_sim import simulate_looseness, simulate_pd
@@ -21,7 +21,7 @@ FS = 48000.0
 def test_published_multipliers():
     """The kinematic formulas must reproduce the tabulated multipliers."""
     published = {"BPFO": 3.5848, "BPFI": 5.4152, "FTF": 0.3983}
-    o = SKF_6205.orders()
+    o = BEARING_6205.orders()
     for k, v in published.items():
         assert abs(o[k] - v) < 1e-4, (k, o[k], v)
     # the table's 4.7135 is the ball *impact* rate, twice the ball spin rate
@@ -31,10 +31,10 @@ def test_published_multipliers():
 
 def test_frequency_sum_rule():
     """BPFO + BPFI = n * fr exactly, for any geometry."""
-    o = SKF_6205.orders()
-    assert abs(o["BPFO"] + o["BPFI"] - SKF_6205.n_elements) < 1e-12
+    o = BEARING_6205.orders()
+    assert abs(o["BPFO"] + o["BPFI"] - BEARING_6205.n_elements) < 1e-12
     # the cage carries the rolling elements: BPFO = n * FTF
-    assert abs(o["BPFO"] - SKF_6205.n_elements * o["FTF"]) < 1e-12
+    assert abs(o["BPFO"] - BEARING_6205.n_elements * o["FTF"]) < 1e-12
 
 
 def test_kurtosis_zero_for_gaussian():
@@ -46,7 +46,7 @@ def test_kurtosis_zero_for_gaussian():
 def test_jitter_law_recovers_slip():
     """The measured harmonic decay must return the slip that produced it."""
     fr = 30.0
-    fd = SKF_6205.orders()["BPFO"] * fr
+    fd = BEARING_6205.orders()["BPFO"] * fr
     band = (6000.0, 10000.0)
     k = np.arange(1, 21)
 
@@ -72,7 +72,7 @@ def test_jitter_law_recovers_slip():
 
 def test_statistic_separates_fault_from_healthy():
     fr = 30.0
-    fd = SKF_6205.orders()["BPFO"] * fr
+    fd = BEARING_6205.orders()["BPFO"] * fr
     res = Resonance(f_n=8000.0, zeta=0.02)
     band = (2000.0, 20000.0)
 
@@ -91,7 +91,7 @@ def test_healthy_statistic_is_flat_in_snr():
     """The statistic must not drift with background level on healthy records,
     or the threshold would have to be re-derived for every operating point."""
     fr = 30.0
-    fd = SKF_6205.orders()["BPFO"] * fr
+    fd = BEARING_6205.orders()["BPFO"] * fr
     vals = []
     for snr in (0.0, -10.0, -20.0):
         s = [harmonic_statistic(
@@ -132,7 +132,7 @@ def test_impact_windows_are_ringing_only():
     resonance, and there is no offset."""
     from exp5_resonance_pinn import impact_windows
     fr = 30.0
-    fd = SKF_6205.frequencies(fr)["BPFO"]
+    fd = BEARING_6205.frequencies(fr)["BPFO"]
     x, _ = simulate(fd, fr, fs=FS, duration=1.0, snr_db=0.0, slip=0.01,
                     resonance=Resonance(f_n=7000.0, zeta=0.03), seed=1)
     W = impact_windows(x, FS)

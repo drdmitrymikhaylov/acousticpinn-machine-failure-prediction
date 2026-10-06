@@ -48,7 +48,7 @@ the separate step, and nothing here substitutes for it.
 | 3 | Widen the harmonic window only if the slip is a random walk. For independent jitter a wider window collects noise, not signal. | Exp 2: linewidth grows as k², or not at all |
 | 4 | Do not pay for per-record adaptive band selection. Pay instead for measuring each sensor's structural resonance once, at commissioning. | Exp 3: the kurtogram never gains more on a fixed wide band than the noise of 90 records allows, and with an interferer it is behind at every SNR down to -12 dB (p < 0.05). Knowing the resonance beats both by 0.5 in detection rate at -18 dB (+45 of 90 records, p ~ 10⁻¹³) |
 | 5 | An ultrasonic-band energy ratio does not detect partial discharge against sensor noise. It is the phase-locked event structure that does. | Exp 4: ratio AUC 0.36–0.55 |
-| 6 | Require M consecutive exceedances rather than a higher threshold. Three-in-a-row cut false alarms from 315/month to none observed while keeping 29 h of the 48 h warning. | Exp 5 |
+| 6 | Require M consecutive exceedances rather than a higher threshold. Three in a row at the 99th percentile cut false alarms from 315/month to none observed while keeping 27.5 h of the 48 h warning. The rule assumes successive measurements are independent: at a lag-1 correlation of 0.6 the same policy gives 13 a month. | Exp 5 |
 | 7 | When the physics is a two-parameter equation, build it into the functions the estimator can represent, not into a loss term. A joint free-decay fit with shared (ωₙ, ζ) recovers the resonance to 98 Hz at -15 dB; a physics-informed network on the same windows is off by 2.8 kHz. | Exp 6: the PINN is the negative result |
 
 ---
@@ -267,7 +267,7 @@ from the 95th to the 99.9th percentile only takes 315 false alarms a month
 down to 83, because 72 baseline samples cannot resolve a 1-in-1000 tail. The
 quantile is beyond the data. Second, **requiring consecutive exceedances
 works**, and cheaply. Three in a row removed every false alarm in 1 728
-held-out opportunities while still leaving 27 of the 48 hours of warning.
+held-out opportunities while still leaving 27.5 of the 48 hours of warning.
 
 "None observed" is not zero. By the rule of three, 0 events in 1 728 trials
 bounds the rate at under 7.5 false alarms per month with 95% confidence. To
@@ -275,6 +275,89 @@ claim less than one a month, the baseline has to be roughly ten times longer.
 
 The alarm fires at a median defect level of -18 dB SNR, which is where Exp 3
 put the detection floor for a fixed band. The chain is consistent end to end.
+
+### Exp 5 again, as counts
+
+*Added 2026-10-06. `results/exp4_alarm_series.json` now holds the statistic of
+all 24 machines (the result file kept one), and `results/alarm_counts.json`
+the numbers below.*
+
+Every rate in the table is a count of events in 1 728 held-out samples: 24
+machines, 12 quiet hours each. As counts, with the three policies the table
+left out:
+
+| threshold | consecutive | events | machines with an event | false alarms / month [95 %] | same policy, day cut again | median warning | worst machine |
+|---|---|---|---|---|---|---|---|
+| 95th pct | 1 | 126 | 24 | 315 [255, 382.5] | 267.4 | 46.7 h | 42.7 h |
+| 99th pct | 1 | 45 | 19 | 112.5 [72.5, 162.5] | 95.2 | 44.3 h | 25.3 h |
+| 99.9th pct | 1 | 33 | 13 | 82.5 [42.5, 130] | 61.8 | 41.5 h | 20.7 h |
+| 95th pct | 2 | 9 | 6 | 22.5 [7.5, 42.5] | 19.5 | 34.0 h | 25.7 h |
+| 99th pct | 2 | 1 | 1 | 2.5 [0, 7.5] | 3.0 | 30.8 h | 23.7 h |
+| 99.9th pct | 2 | 1 | 1 | 2.5 [0, 7.5] | 1.7 | 28.4 h | 20.5 h |
+| 95th pct | 3 | 0 | 0 | none observed | 1.6 | 29.2 h | 24.2 h |
+| 99th pct | 3 | 0 | 0 | none observed | 0.13 | 27.5 h | 23.5 h |
+| 99.9th pct | 3 | 0 | 0 | none observed | 0.07 | 26.5 h | 18.8 h |
+
+*Interval: whole machines resampled 10 000 times. "Day cut again": each
+machine's 144 quiet samples shuffled and split into halves 2 000 times; the
+mean over those cuts, per month. Worst machine: the shortest warning among
+the 24.*
+
+**The low rows are one event or none.** 315 a month is 126 events, spread over
+all 24 machines. "2.5 a month" is one event on one machine, and that event is
+all that separates its row from "none observed". Its interval runs from 0 to
+7.5.
+
+**"None observed" covers three different rates.** Three policies show no false
+alarm. Cutting the same quiet days differently says what each one is expected
+to give. Three in a row at the 95th percentile expects 1.6 false alarms a month,
+and 57 % of the cuts of this fleet still show none. At the 99th percentile it
+expects 0.13 a month, one false alarm in about eight months, and 95 % of the cuts
+show none. At the 99.9th it expects 0.07. The summary table at the top of this
+page quoted "29 h of warning" for three in a row. That is the 95th-percentile
+policy, the one whose zero means least, and it was not in the table. Finding 6
+now quotes the 99th-percentile row, 27.5 h.
+
+**What a percentile of 72 samples is.** The 99th and the 99.9th percentile of
+72 samples lie between the same two samples, the second largest and the
+largest, 29 % and 93 % of the way up. For any distribution, a threshold between
+those two is exceeded between 1.4 % and 2.7 % of the time. That is 59 to 118
+false alarms a month, against a nominal 43 and 4.3. The held-out halves gave
+2.6 % and 1.9 %; over the reshuffled cuts the mean is 2.2 % and 1.4 %. This is
+the size of "the quantile is beyond the data".
+
+**The median warning is not hiding a tail.** At the 99th percentile, three in a
+row, the worst of the 24 machines still has 23.5 h against a median of 27.5 h.
+
+**What three in a row assumes.** The rule turns a per-record rate *p* into
+roughly *p*³ only if successive measurements are independent. In this model
+they are, by construction: every record is a fresh draw, and the lag-1
+autocorrelation of the 24 baselines averages −0.007. A statistic read every ten
+minutes on a real machine follows load and temperature, and neighbouring
+readings resemble each other. The same thresholding on a Gaussian baseline
+with memory (first-order autoregressive, 20 000 synthetic machines, 72 samples
+to set the threshold and 72 to test it):
+
+| lag-1 correlation | 99th pct, single | 99th pct, three in a row | 95th pct, three in a row | what three in a row buys at the 99th |
+|---|---|---|---|---|
+| 0.0 | 93.3 | 0.15 | 1.7 | × 609 |
+| 0.3 | 100.8 | 1.5 | 10.2 | × 69 |
+| 0.6 | 125.8 | 12.8 | 47.3 | × 9.8 |
+| 0.9 | 300.8 | 156.5 | 277.9 | × 1.9 |
+
+*False alarms per month. The zero-correlation row is the check: it agrees with
+the reshuffled bearing fleet (0.15 against 0.13, and 1.7 against 1.6).*
+
+At a correlation of 0.6 the policy that showed no false alarm here gives 13 a
+month. At 0.9 the rule buys a factor of two. Single exceedances rise as well,
+because twelve correlated hours hold fewer independent samples to set a
+threshold from.
+
+**What this does not show.** The autoregressive baseline is the simplest kind
+of memory, and it is not the bearing model. The autocorrelation of this
+statistic on a real machine is not measured here, and it decides which row
+applies. The reshuffled rates hold only while the baseline has no memory.
+Nothing here tests a longer run or a longer baseline, the two obvious repairs.
 
 ---
 
@@ -422,6 +505,11 @@ interferer rows held up: 8–10 records behind at every SNR from 0 to -12 dB.
 `src/band_selection_intervals.py` and the intervals JSON were added so the
 counts and p-values sit next to the rates rather than in my head.
 
+Exp 5 was read again on 6 October 2026, as counts. The summary row had quoted
+29 h of warning for three in a row. That is the 95th-percentile policy, which
+was never in the table; the table's own row is 27.5 h. The series of all 24
+machines are now published, not one.
+
 The PINN in Exp 6 was rewritten twice before its result was accepted. The
 first version's ωₙ⁴ normalisation pushed every estimate to 12 kHz. The second
 let Fourier features above Nyquist satisfy the ODE for any ωₙ. Only after both
@@ -451,6 +539,8 @@ The physics core is public in this repository:
 - `tests/test_readme_numbers.py`: pins every number quoted in Exp 1, Exp 3,
   Exp 5 and Exp 6 to the files in `results/`, so a regenerated result that no
   longer matches the text fails
+- `tests/test_alarm_counts.py`: recomputes the Exp 5 counts from the 24
+  published series and pins the second reading of Exp 5
 
 The partial-discharge model and features (Exp 4), the slip and alarm-policy
 experiments (Exp 2, Exp 5) and the figure scripts are held in a private
@@ -459,7 +549,7 @@ repository. `results/` holds every number on this page as JSON.
 ```
 pip install -r requirements.txt
 python tests/test_all.py
-python -m pytest tests/test_readme_numbers.py
+python -m pytest tests/test_readme_numbers.py tests/test_alarm_counts.py
 python src/exp5_resonance_pinn.py     # ~2 h on a laptop CPU
 ```
 

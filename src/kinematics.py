@@ -19,7 +19,7 @@ The four kinematic frequencies assume pure rolling (no slip):
 A spall on a rolling element strikes both races, so the observed repetition
 rate for a ball defect is 2*BSF.  We return BSF itself and expose the impact
 rate separately.  This resolves an apparent discrepancy with published tables:
-for SKF 6205-2RS JEM the formula above gives BSF = 2.3567 per revolution while
+for the 6205-2RS bearing the formula above gives BSF = 2.3567 per revolution while
 the commonly quoted table value is 4.7135 -- exactly twice, because the table
 lists the impact rate, not the ball rotation rate.  See tests/test_kinematics.
 """
@@ -83,12 +83,12 @@ class Bearing:
         return {k: v * fr_hz for k, v in self.orders().items()}
 
 
-# Two documented geometries.  SKF 6205-2RS JEM is the drive-end bearing of the
+# Two documented geometries.  The 6205-2RS is the drive-end bearing of the
 # most widely published bearing test rig; its multipliers are quoted in the
 # literature as BPFO 3.5848, BPFI 5.4152, FTF 0.3983, BSF 4.7135 per shaft
 # revolution, which the formulas above must reproduce (see tests/).
-SKF_6205 = Bearing(name="SKF 6205-2RS JEM", n_elements=9, d=0.3126, D=1.537)
-SKF_6203 = Bearing(name="SKF 6203-2RS JEM", n_elements=9, d=0.2656, D=1.122)
+BEARING_6205 = Bearing(name="6205-2RS", n_elements=9, d=0.3126, D=1.537)
+BEARING_6203 = Bearing(name="6203-2RS", n_elements=9, d=0.2656, D=1.122)
 
 
 def sidebands(f_defect: float, fr_hz: float, n_harm: int, n_side: int = 0):
