@@ -1,0 +1,23 @@
+{
+  "upload_type": "software",
+  "title": "AcousticPINN: Detection Limits for Acoustic Machine-Failure Prediction",
+  "description": "Measured detection limits for hearing a machine fail",
+  "creators": [
+    {
+      "name": "Mikhaylov, Dmitry",
+      "orcid": "0009-0009-2108-6820",
+      "affiliation": "Abu Dhabi Maritime Academy, AD Ports Group"
+    }
+  ],
+  "license": "cc-by-4.0",
+  "keywords": [
+    "acoustic emission",
+    "bearing fault diagnosis",
+    "condition monitoring",
+    "partial discharge",
+    "predictive maintenance",
+    "signal processing",
+    "vibration analysis"
+  ],
+  "access_right": "open"
+}
