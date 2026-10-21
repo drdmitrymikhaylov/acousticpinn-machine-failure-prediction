@@ -1,5 +1,7 @@
 # Vibroacoustic diagnostics of industrial machinery
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23529541.svg)](https://doi.org/10.5281/zenodo.23529541)
+
 What a condition-monitoring module can and cannot decide from sound and
 vibration, worked out quantitatively for rotating machinery and for
 high-voltage plant.
