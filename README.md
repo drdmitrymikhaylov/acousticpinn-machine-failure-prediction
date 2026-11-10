@@ -2,6 +2,10 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23529541.svg)](https://doi.org/10.5281/zenodo.23529541)
 
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/drdmitrymikhaylov/acousticpinn-machine-failure-prediction/blob/main/notebooks/quickstart.ipynb)
+
+**Try it in five minutes:** [`notebooks/quickstart.ipynb`](notebooks/quickstart.ipynb) runs a simulated bearing defect found by kurtogram and envelope spectrum from the public code in `src/`, in Colab or locally, with no data download.
+
 What a condition-monitoring module can and cannot decide from sound and
 vibration, worked out quantitatively for rotating machinery and for
 high-voltage plant.
