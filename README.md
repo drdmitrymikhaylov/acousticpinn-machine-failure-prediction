@@ -50,7 +50,7 @@ the separate step, and nothing here substitutes for it.
 | # | Rule | Where it comes from |
 |---|------|---------------------|
 | 1 | Never look for a defect frequency in the raw spectrum. Demodulate. | Exp 1: detection rate 0.24 vs 1.00 at -12 dB |
-| 2 | Sum no more than `k_max ≈ 0.225 / slip` harmonics. At 1% slip that is 22; at 4% it is 6. | Exp 2, verified to 3% over a 16× range of slip |
+| 2 | Sum no more than `k_max ≈ 0.225 / slip` harmonics. At 1% slip that is 22; at 4% it is 6. | Exp 2: within 1–2.5% for slips of 0.5–4%; 6% low at 0.25% slip, where the 30 measured harmonics cover a tenth of the decay and k_max is extrapolated, not measured (an earlier version said "verified to 3% over a 16× range") |
 | 3 | Widen the harmonic window only if the slip is a random walk. For independent jitter a wider window collects noise, not signal. | Exp 2: linewidth grows as k², or not at all |
 | 4 | Do not pay for per-record adaptive band selection. Pay instead for measuring each sensor's structural resonance once, at commissioning. | Exp 3: the kurtogram never gains more on a fixed wide band than the noise of 90 records allows, and with an interferer it is behind at every SNR down to -12 dB (p < 0.05). Knowing the resonance beats both by 0.5 in detection rate at -18 dB (+45 of 90 records, p ~ 10⁻¹³) |
 | 5 | An ultrasonic-band energy ratio does not detect partial discharge against sensor noise. It is the phase-locked event structure that does. | Exp 4: ratio AUC 0.36–0.55 |
@@ -136,6 +136,93 @@ decay time (~1 ms here). That alone rolls the harmonic series off with a
 corner near 160 Hz, below the second harmonic. Fitting the jitter law without
 dividing that out returns σ ~ 0.017 for every slip from 0.25% to 4%. It
 measures the impulse shape and calls it slip.
+
+### What "verified to 3 %" rested on
+
+*Added 2026-11-18, from `results/slip_fit_check.json`.*
+
+Finding 2 said k_max was "verified to 3 % over a 16× range of slip". The
+table above does not say that: 84 against 90 at 0.25 % slip is −6.4 %, and
+5.8 against 5.6 at 4 % is +2.5 %. The fit behind the table is a straight line
+through log *a* against *k*² over the harmonics whose shape-corrected
+amplitude is above 0.15, on amplitudes averaged over six records before the
+fit, so the table carries no interval and says nothing about how much of the
+decay the 30 harmonics actually show. Re-read (the stored fit reproduces from
+the stored amplitudes exactly; the six-record means reproduce by
+re-simulation to 2 × 10⁻¹⁶), then re-run with 36 records per slip, each
+fitted on its own and as a record bootstrap of the averaged fit:
+
+| slip | k_max predicted | k_max measured (table) | deviation | decay covered by k ≤ 30 | a(30) observed | k_max ratio, 36 records [95 %] | sd of one record's slip | records within 3 % |
+|---|---|---|---|---|---|---|---|---|
+| 0.25% | 90.0 | 84.2 | -6.4 % | 11 % | 0.897 | 0.934 [0.927, 0.941] | 2.4 % | 3 / 36 |
+| 0.5% | 45.0 | 44.2 | -1.8 % | 44 % | 0.651 | 0.979 [0.972, 0.986] | 2.4 % | 23 / 36 |
+| 1% | 22.5 | 22.7 | +0.8 % | 100 % | 0.181 | 1.008 [0.997, 1.019] | 3.4 % | 22 / 36 |
+| 2% | 11.3 | 11.4 | +1.0 % | 100 % | 0.101 | 1.010 [0.999, 1.029] | 4.2 % | 19 / 36 |
+| 4% | 5.6 | 5.8 | +2.5 % | 100 % | 0.105 | 1.016 [1.005, 1.031] | 4.0 % | 19 / 36 |
+
+*Decay covered: the share of the fall to 1/e that the fitted law predicts
+within k ≤ 30, i.e. 2π²·30²·σ² capped at 1. a(30): the shape-corrected
+amplitude of the 30th harmonic in the stored means. Ratio: measured over
+predicted k_max, so 0.934 is 6.6 % low. Records within 3 %: single 8 s
+records whose fitted slip is within 3 % of the truth.*
+
+**At 0.25 % slip k_max is read off a line, not measured.** The law predicts
+that the 30th harmonic has fallen to 0.895 of the first, and the stored mean
+reads 0.897; the whole series the fit sees spans a tenth of the decay, and
+the 1/e point sits at k = 90, three times beyond the last harmonic the fit
+sees and past the ~37 that a 4 kHz demodulation band can supply at all (the
+bandwidth constraint stated under Exp 1: 90 harmonics of 107 Hz need 9.7 kHz
+of envelope bandwidth). The
+6 % shortfall is not record noise: 36 records put the ratio at 0.934 with an
+interval of [0.927, 0.941], and a four times longer record (32 s, 12 records)
+moves it to **0.926 [0.921, 0.931]**, further from 1, while the record-to-
+record spread halves (2.4 % → 1.1 %). What the fit measures at that slip is
+set by which harmonics it is given:
+
+| slip | k ≤ 8 | k ≤ 12 | k ≤ 16 | k ≤ 20 | k ≤ 30 (table) |
+|---|---|---|---|---|---|
+| 0.25% | -3.6 % | -1.7 % | +3.8 % | -26.7 % | -6.4 % |
+| 0.5% | -1.6 % | -0.6 % | +1.3 % | -12.8 % | -1.8 % |
+| 1% | +0.3 % | +0.3 % | +0.8 % | -2.6 % | +0.8 % |
+| 2% | +1.2 % | +1.2 % | +1.0 % | +1.0 % | +1.0 % |
+| 4% | +2.5 % | +2.5 % | +2.5 % | +2.5 % | +2.5 % |
+
+*Deviation of k_max measured from predicted, the stored six-record means
+refitted over the first K harmonics with the same 0.15 cut.*
+
+At 0.25 % slip the answer runs from −3.6 % to +3.8 % to −26.7 % as harmonics
+are added, because the information is in a 2–10 % decay sitting on top of a
+shape correction whose own reference amplitude is 0.03–0.08 there: the
+reference falls from 0.078 at k = 19 to 0.032 at k = 20, and the
+shape-corrected amplitude at k = 19 is 0.774 against 0.999 at k = 18 and
+0.972 at k = 20. Read harmonic by harmonic (σ_k = √(−ln a_k / 2π²k²)),
+harmonics 3 to 17 put the slip at 0.88 to 1.29 of the truth, k = 19 at 2.4
+and k = 18 at 0.19. From 1 % slip up the decay is complete within the data,
+no single harmonic moves the fit by more than 0.5 % (leave-one-out), and the
+table's +1 % to +2.5 % is what the law delivers. The claim that survives:
+**k_max is confirmed to 1–2.5 % where it can be measured, 0.5–4 % slip, and
+a single 8 s record recovers the slip to 2.4–4.2 % (sd)**. At 0.25 % slip
+the page has a prediction with a consistent first tenth, not a verification.
+
+**Two sentences above, checked.** "Fitting the jitter law without dividing
+out the impulse shape returns σ ~ 0.017 for every slip": with all 30
+harmonics fitted it returns 0.015–0.019 at every slip, as stated; with the
+script's own 0.15 cut it returns **0.032, 0.032, 0.037, 0.049, 0.070** at
+0.25 % to 4 %, rising with slip. Either way it is not the slip. And "below
+the pedestal the harmonic amplitude being measured is the pedestal": at 2 %
+and 4 % slip the law predicts a(30) = 0.001 and 0.000 while the stored means
+read 0.101 and 0.105, and lowering the cut to 0.05 so that those harmonics
+enter the fit puts k_max off by **+67 % and +338 %**.
+
+**What this does not show.** Independent jitter only; the random-walk arm's
+exponents (1.98, 2.01, 2.00 from 3, 4 and 5 points) have no interval either.
+The 36 records share the simulator's resonance (8 kHz, 1 ms decay) and the
+6–10 kHz band; a narrower band moves the last usable harmonic down with it.
+The bias at 0.25 % slip is measured, not explained: it may be the window
+maximum in a spectrum that has not resolved, or the shape correction at
+harmonics where the reference is 3 % of the fundamental. A rule for a module
+is unchanged: k_max = 0.225 / σ, with σ measured on the first ~12 harmonics
+and the pedestal kept out of the fit.
 
 **Random-walk slip.** If instead the *interval* fluctuates, phase error
 accumulates and the lines broaden rather than fade. The measured exponent of

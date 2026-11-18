@@ -1,5 +1,26 @@
 # Changelog
 
+## 2026-11-18
+
+- Finding 2 corrected: k_max was "verified to 3 % over a 16× range of slip";
+  the Exp 2 table itself reads −6.4 % at 0.25 % slip and +2.5 % at 4 %. New
+  Exp 2 subsection "What 'verified to 3 %' rested on"
+  (`results/slip_fit_check.json`): the stored fit reproduced from the stored
+  amplitudes, the six-record means by re-simulation (2e-16); 36 records per
+  slip fitted one by one and bootstrapped. At 0.25 % slip the 30 measured
+  harmonics cover 11 % of the decay (a(30) = 0.897 against a predicted
+  0.895), the 1/e point at k = 90 lies past what a 4 kHz band can supply, and
+  the 6 % shortfall is a bias, not noise (36 records: ratio 0.934
+  [0.927, 0.941]; a 32 s record 0.926 [0.921, 0.931]); refitted over the
+  first 8 / 12 / 16 / 20 harmonics it reads −3.6 / −1.7 / +3.8 / −26.7 %.
+  From 0.5 % slip up k_max holds to 1–2.5 %, a single 8 s record recovers
+  the slip to 2.4–4.2 % (sd), and no harmonic moves the fit by more than
+  0.5 %. The "σ ~ 0.017 without shape correction" sentence holds for an
+  all-harmonics fit (0.015–0.019); with the script's 0.15 cut it is
+  0.032–0.070, rising with slip. Letting the pedestal into the fit (cut 0.05)
+  puts k_max off by +67 % / +338 % at 2 % / 4 % slip.
+- `tests/test_slip_fit.py` (6 tests) pins the subsection.
+
 ## 2026-11-10
 
 - Quickstart notebook (`notebooks/quickstart.ipynb`) with an Open-in-Colab badge at the top of the README: a simulated bearing defect found by kurtogram and envelope spectrum, from the public `src/` only, under a minute.
